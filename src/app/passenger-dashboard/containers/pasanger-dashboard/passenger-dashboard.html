@@ -1,0 +1,17 @@
+<div class="container bg-light text-secondary border border-dark shadow mt-4 p-4">
+
+  <passenger-count [items]="flightPassengers"></passenger-count>
+
+  <div *ngFor="let passenger of flightPassengers">
+    {{passenger.fullName}}
+  </div>
+
+  <passenger-detail
+    *ngFor="let passenger of flightPassengers;"
+    [detail]="passenger"
+
+    (remove)="handleRemove($event)"
+    (edit)="handleEdit($event)">
+  </passenger-detail>
+
+</div>

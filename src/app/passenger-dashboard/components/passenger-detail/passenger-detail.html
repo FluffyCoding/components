@@ -1,0 +1,32 @@
+<blockquote>
+<span class="status"
+      [class.checked-in]="detail.checkedIn"></span>
+
+  <div *ngIf="editing">
+    <input
+      type="text"
+      [value]="detail.fullName"
+      (input)="onNameChange(name.value)"
+      #name>
+  </div>
+
+  <div *ngIf="!editing">
+    {{detail.fullName}}
+  </div>
+  <!--      <p> {{passenger | json}}</p>-->
+  <div class="date font-weight-bold text-capitalize text-primary">
+    Checked in
+    Date: {{detail.checkedIn ? (detail.checkedInDate | date: 'MMMM dd, yyyy' | uppercase) : ('Not Checked In' | uppercase)}}
+  </div>
+  <div class="badge badge-secondary shadow">
+    Children : {{detail.children?.length || 0}}
+  </div>
+  <button class="ml-2 shadow" (click)="toggleEdit()">
+    {{editing ? 'Done' : 'Edit'}}
+  </button>
+  <button class="ml-2 shadow" (click)="onRemove()">
+    Remove
+  </button>
+
+
+</blockquote>
