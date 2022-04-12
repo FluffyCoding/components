@@ -2,9 +2,6 @@
 
   <passenger-count [items]="flightPassengers"></passenger-count>
 
-  <div *ngFor="let passenger of flightPassengers">
-    {{passenger.fullName}}
-  </div>
 
   <passenger-detail
     *ngFor="let passenger of flightPassengers;"

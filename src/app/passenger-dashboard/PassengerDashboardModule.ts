@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-
+import {HttpClientModule} from "@angular/common/http";
 //Container
 import {PassengerDashboardComponent} from "./containers/pasanger-dashboard/passanger-dashboard.componenet";
 
@@ -8,18 +8,26 @@ import {PassengerDashboardComponent} from "./containers/pasanger-dashboard/passa
 import {PassengerCountComponent} from "./components/passenger-count/passenger-count.component";
 import {PassengerDetailComponent} from "./components/passenger-detail/passenger-detail.component";
 
+//Service
+import {PassengerDashboardService} from "./passenger-dashboard.service";
+
 @NgModule({
-  declarations:[
+  declarations: [
     PassengerDashboardComponent,
     PassengerCountComponent,
     PassengerDetailComponent
   ],
-  imports:[
+  imports: [
     CommonModule,
+    HttpClientModule
   ],
   exports: [
-  PassengerDashboardComponent
+    PassengerDashboardComponent
+  ],
+  providers: [
+    PassengerDashboardService
   ]
 })
 
-export class PassengerDashboardModule{ }
+export class PassengerDashboardModule {
+}
